@@ -115,18 +115,40 @@ import movieItem from './templates/movieItem.hbs';
 
 const input = document.querySelector('.input');
 const list = document.querySelector('.list');
+const btnLoad = document.querySelector('.load-more');
+let page = 1;
+let inputValue = '';
+
+btnLoad.addEventListener('click', loadMore);
 
 input.addEventListener('input', debounce(getMovie, 500));
+
 function getMovie() {
-    const inputValue = input.value;
+    inputValue = input.value;
     console.log(inputValue);
-    fetchMovies(inputValue).then(data => createMarkup(data.results));
+    list.innerHTML = '';
+    btnLoad.style.display = "none";
+    if (inputValue.trim() === '') return;
+    fetchMovies(inputValue)
+        .then(data => {
+            console.log(data);
+            createMarkup(data.results);
+            return data;
+        })  
+        .then((data) => {
+            if (!data.results.length) {
+                console.log('return');
+                btnLoad.style.display = "none";
+                return;
+            }
+            console.log('visible');
+            btnLoad.style.display = 'inline-block';
+        })
 };
 
 function createMarkup(array) {
     // const list = document.createElement("ul");
     // document.body.append(list);
-
     // const markup = movieItem(array);
     // document.querySelector('ul').insertAdjacentHTML("beforeend", markup);
 
@@ -134,3 +156,8 @@ function createMarkup(array) {
     list.insertAdjacentHTML('beforeend', markup) 
 }
 
+function loadMore() {
+    page += 1;
+    fetchMovies(inputValue, page)
+        .then(data => createMarkup(data.results))
+}
