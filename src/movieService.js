@@ -4,7 +4,6 @@ export default function fetchMovies(query, page = 1) {
     return fetch(`${BASE_URL}api_key=${KEY}&language=en-US&page=1&include_adult=false&query=${query}&page=${page}`)
         .then(response => {
             if (!response.ok) {
-
                 throw new Error(response.status)
             }
             return response.json()
