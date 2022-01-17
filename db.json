@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server-1",
+      "author": "typicode",
+      "text": "sometext"
+    },
+    {
+      "text": "New tesla will able to fly))",
+      "author": "Ilon Mask",
+      "title": "New Tesla",
+      "id": 2
+    },
+    {
+      "text": "And fun. Its true!",
+      "author": "Yana Sher",
+      "title": "JS is awesome",
+      "id": 3
+    },
+    {
+      "text": "",
+      "author": "",
+      "title": "test",
+      "id": 4
+    },
+    {
+      "text": "блабла",
+      "author": "Я",
+      "title": "Проверка-1",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

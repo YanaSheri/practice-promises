@@ -12,13 +12,13 @@
     />
   </head>
   <body>
-     <form action="" class="form">
+     <!-- <form action="" class="form">
        <input type="text" class="input">
-       <!-- <button class="save">SAVE</button> -->
+       <button class="save">SAVE</button> -->
        
-     </form>
+     <!-- </form>
      <ul class="list"></ul>
-    <button class="load-more">LOAD MORE</button>
+    <button class="load-more">LOAD MORE</button> -->
      <!-- <li class="list-item">
        <img src="" alt="">
        <h2></h2>
@@ -33,10 +33,28 @@
       <button id="target-timer">start</button>
       <button id="save">save</button>
     </div> -->
+    <div class="wrapper">
+      <form id="create-post">
+        <div>
+           <input type="text" name="title" placeholder="Title">
+          <input type="text" name="author" placeholder="Author">
+          <input type="hidden" name="id">
+        </div>
+       
+        <textarea name="text" placeholder="Write here..."></textarea>
+      </form>
+      <ul class="post-list"></ul>
+    </div>
+    
+
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <include src="./partials/example.html"></include>
+    <!-- <include src="./partials/example.html"></include> -->
+    <!-- <include src="./query_server.js"></include> -->
+
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <script src="./query_server.js"></script>
+  
   </body>
 </html>
